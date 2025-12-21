@@ -1,0 +1,1988 @@
+{
+  "places": [
+    {
+      "id": "154158458",
+      "name": "Miami",
+      "type": "city",
+      "lat": 25.7741566,
+      "lon": -80.1935973,
+      "node_id": "253"
+    },
+    {
+      "id": "358726519",
+      "name": "Saint Bernards Episcopal Church",
+      "type": "unknown",
+      "lat": 25.7781545,
+      "lon": -80.1900476,
+      "node_id": "688"
+    },
+    {
+      "id": "358727996",
+      "name": "Cantwell Academy",
+      "type": "unknown",
+      "lat": 25.7745436,
+      "lon": -80.190881,
+      "node_id": "558"
+    },
+    {
+      "id": "358736315",
+      "name": "WCMQ-FM (Hialeah)",
+      "type": "unknown",
+      "lat": 25.7750522,
+      "lon": -80.1884263,
+      "node_id": "93"
+    },
+    {
+      "id": "358736485",
+      "name": "WZTA-FM (Miami Beach)",
+      "type": "unknown",
+      "lat": 25.775099,
+      "lon": -80.1883809,
+      "node_id": "718"
+    },
+    {
+      "id": "358741092",
+      "name": "Trinity International University",
+      "type": "unknown",
+      "lat": 25.7733333,
+      "lon": -80.195,
+      "node_id": "589"
+    },
+    {
+      "id": "358741845",
+      "name": "New World School of the Arts",
+      "type": "unknown",
+      "lat": 25.7772222,
+      "lon": -80.1911111,
+      "node_id": "652"
+    },
+    {
+      "id": "358741849",
+      "name": "New World School of the Arts",
+      "type": "unknown",
+      "lat": 25.7761111,
+      "lon": -80.1936111,
+      "node_id": "266"
+    },
+    {
+      "id": "358741982",
+      "name": "Miami Dade Community College Mitchel Wolfson Campus",
+      "type": "unknown",
+      "lat": 25.7766667,
+      "lon": -80.1908333,
+      "node_id": "650"
+    },
+    {
+      "id": "367819296",
+      "name": "Miami Dade Cultural Center",
+      "type": "unknown",
+      "lat": 25.7744652,
+      "lon": -80.1964202,
+      "node_id": "626"
+    },
+    {
+      "id": "367822748",
+      "name": "YWCA Cain Towers Child Care Center",
+      "type": "unknown",
+      "lat": 25.7788889,
+      "lon": -80.1902778,
+      "node_id": "514"
+    },
+    {
+      "id": "367823169",
+      "name": "Downtown Toddler Club Day Care Center",
+      "type": "unknown",
+      "lat": 25.7736111,
+      "lon": -80.1872222,
+      "node_id": "714"
+    },
+    {
+      "id": "367823581",
+      "name": "Carol Glasman Donaldson Child Care Center",
+      "type": "unknown",
+      "lat": 25.7769444,
+      "lon": -80.1961111,
+      "node_id": "635"
+    },
+    {
+      "id": "367824130",
+      "name": "Miami - Dade Community College Wolfson Campus Library",
+      "type": "unknown",
+      "lat": 25.77763,
+      "lon": -80.190991,
+      "node_id": "651"
+    },
+    {
+      "id": "367824134",
+      "name": "Miami - Dade County Law Library",
+      "type": "unknown",
+      "lat": 25.774614,
+      "lon": -80.195198,
+      "node_id": "567"
+    },
+    {
+      "id": "367825193",
+      "name": "Miami Police Department - NET",
+      "type": "unknown",
+      "lat": 25.7788741,
+      "lon": -80.1875073,
+      "node_id": "741"
+    },
+    {
+      "id": "367825413",
+      "name": "Miami - Dade County Police Department",
+      "type": "unknown",
+      "lat": 25.7746004,
+      "lon": -80.1950077,
+      "node_id": "240"
+    },
+    {
+      "id": "367826178",
+      "name": "YWCA Downtown Playhouse",
+      "type": "unknown",
+      "lat": 25.7761859,
+      "lon": -80.1911182,
+      "node_id": "275"
+    },
+    {
+      "id": "462742190",
+      "name": "Riverwalk",
+      "type": "unknown",
+      "lat": 25.7710458,
+      "lon": -80.1926051,
+      "node_id": "580"
+    },
+    {
+      "id": "463206900",
+      "name": "College Bayside",
+      "type": "unknown",
+      "lat": 25.7776151,
+      "lon": -80.1899352,
+      "node_id": "562"
+    },
+    {
+      "id": "463206906",
+      "name": "College North",
+      "type": "unknown",
+      "lat": 25.7789657,
+      "lon": -80.1921314,
+      "node_id": "912"
+    },
+    {
+      "id": "463206907",
+      "name": "Wilkie D. Ferguson, Jr.",
+      "type": "unknown",
+      "lat": 25.7788575,
+      "lon": -80.1953586,
+      "node_id": "528"
+    },
+    {
+      "id": "463206909",
+      "name": "Third Street",
+      "type": "unknown",
+      "lat": 25.772025,
+      "lon": -80.1935218,
+      "node_id": "629"
+    },
+    {
+      "id": "463206910",
+      "name": "Miami Avenue",
+      "type": "unknown",
+      "lat": 25.773424,
+      "lon": -80.1935991,
+      "node_id": "939"
+    },
+    {
+      "id": "463206911",
+      "name": "Knight Center",
+      "type": "unknown",
+      "lat": 25.7718781,
+      "lon": -80.1914361,
+      "node_id": "38"
+    },
+    {
+      "id": "463206912",
+      "name": "Bayfront Park",
+      "type": "unknown",
+      "lat": 25.7731462,
+      "lon": -80.1873259,
+      "node_id": "434"
+    },
+    {
+      "id": "463206913",
+      "name": "First Street",
+      "type": "unknown",
+      "lat": 25.7757582,
+      "lon": -80.1898654,
+      "node_id": "976"
+    },
+    {
+      "id": "1024679363",
+      "name": "El Cartel Colombian Restaurant",
+      "type": "unknown",
+      "lat": 25.772604,
+      "lon": -80.191904,
+      "node_id": "120"
+    },
+    {
+      "id": "1024680688",
+      "name": "Wok Town",
+      "type": "unknown",
+      "lat": 25.77284,
+      "lon": -80.191796,
+      "node_id": "1008"
+    },
+    {
+      "id": "1025611004",
+      "name": "Olympia Theater at Gusman Center",
+      "type": "unknown",
+      "lat": 25.7741039,
+      "lon": -80.1904762,
+      "node_id": "87"
+    },
+    {
+      "id": "1025619350",
+      "name": "Giardino Gourmet Salads",
+      "type": "unknown",
+      "lat": 25.7743016,
+      "lon": -80.1905632,
+      "node_id": "559"
+    },
+    {
+      "id": "1025627486",
+      "name": "New York Bagel Deli",
+      "type": "unknown",
+      "lat": 25.7743481,
+      "lon": -80.1909595,
+      "node_id": "558"
+    },
+    {
+      "id": "1025635627",
+      "name": "Walgreens",
+      "type": "unknown",
+      "lat": 25.7741593,
+      "lon": -80.1888305,
+      "node_id": "776"
+    },
+    {
+      "id": "1025636215",
+      "name": "CVS Pharmacy",
+      "type": "unknown",
+      "lat": 25.7727726,
+      "lon": -80.1890987,
+      "node_id": "611"
+    },
+    {
+      "id": "1025639889",
+      "name": "Subway",
+      "type": "unknown",
+      "lat": 25.7728693,
+      "lon": -80.1887822,
+      "node_id": "611"
+    },
+    {
+      "id": "1025642976",
+      "name": "Pollo Tropical",
+      "type": "unknown",
+      "lat": 25.7733548,
+      "lon": -80.1882807,
+      "node_id": "828"
+    },
+    {
+      "id": "1025644161",
+      "name": "Starbucks",
+      "type": "unknown",
+      "lat": 25.7733161,
+      "lon": -80.1891993,
+      "node_id": "829"
+    },
+    {
+      "id": "1025645943",
+      "name": "Pizza Hut",
+      "type": "unknown",
+      "lat": 25.7733596,
+      "lon": -80.1891523,
+      "node_id": "829"
+    },
+    {
+      "id": "1025646223",
+      "name": "Iron Sushi",
+      "type": "unknown",
+      "lat": 25.7732304,
+      "lon": -80.1891738,
+      "node_id": "612"
+    },
+    {
+      "id": "1025649433",
+      "name": "Tre Italian Bistro",
+      "type": "unknown",
+      "lat": 25.7741905,
+      "lon": -80.1890611,
+      "node_id": "767"
+    },
+    {
+      "id": "1025659681",
+      "name": "Camila's Restaurante Brasileiro",
+      "type": "unknown",
+      "lat": 25.7727393,
+      "lon": -80.1916754,
+      "node_id": "118"
+    },
+    {
+      "id": "1039627387",
+      "name": "Southeast 1st Street & Southeast 1st Avenue",
+      "type": "bus_stop",
+      "lat": 25.7733174,
+      "lon": -80.1914598,
+      "node_id": "578"
+    },
+    {
+      "id": "1039630562",
+      "name": "Northeast 1st Avenue & Northeast 4th Street",
+      "type": "bus_stop",
+      "lat": 25.7777059,
+      "lon": -80.1919274,
+      "node_id": "704"
+    },
+    {
+      "id": "1039644035",
+      "name": "Southwest 1st Avenue & Southwest 1st Street",
+      "type": "bus_stop",
+      "lat": 25.7735528,
+      "lon": -80.1956608,
+      "node_id": "384"
+    },
+    {
+      "id": "1039645493",
+      "name": "Biscayne Boulevard @ East Flagler Street",
+      "type": "bus_stop",
+      "lat": 25.7732536,
+      "lon": -80.187323,
+      "node_id": "834"
+    },
+    {
+      "id": "1039655360",
+      "name": "Biscayne Boulevard & Northeast 5th Street",
+      "type": "bus_stop",
+      "lat": 25.7788402,
+      "lon": -80.1888633,
+      "node_id": "675"
+    },
+    {
+      "id": "1039692858",
+      "name": "Northwest 1st Avenue & Northwest 5th Street",
+      "type": "bus_stop",
+      "lat": 25.7780139,
+      "lon": -80.195394,
+      "node_id": "531"
+    },
+    {
+      "id": "1039693081",
+      "name": "Southeast 1st Street & Southeast 3rd Avenue",
+      "type": "bus_stop",
+      "lat": 25.7734015,
+      "lon": -80.1887232,
+      "node_id": "825"
+    },
+    {
+      "id": "1039699984",
+      "name": "Northeast 1st Street & Northeast 1st Avenue",
+      "type": "bus_stop",
+      "lat": 25.775214,
+      "lon": -80.192333,
+      "node_id": "806"
+    },
+    {
+      "id": "1039700037",
+      "name": "Northwest 1st Street & North Miami Avenue",
+      "type": "bus_stop",
+      "lat": 25.7751538,
+      "lon": -80.1939775,
+      "node_id": "176"
+    },
+    {
+      "id": "1039700229",
+      "name": "Southeast 1st Avenue & East Flagler Street",
+      "type": "bus_stop",
+      "lat": 25.774035,
+      "lon": -80.19187,
+      "node_id": "577"
+    },
+    {
+      "id": "1039700261",
+      "name": "Northeast 1st Avenue & Northeast 1st Street",
+      "type": "bus_stop",
+      "lat": 25.7750608,
+      "lon": -80.1919084,
+      "node_id": "556"
+    },
+    {
+      "id": "1039700270",
+      "name": "Southeast 2nd Avenue & Southeast 4th Street",
+      "type": "bus_stop",
+      "lat": 25.7710637,
+      "lon": -80.1902145,
+      "node_id": "690"
+    },
+    {
+      "id": "1039700481",
+      "name": "North Miami Avenue & North 4th Street",
+      "type": "bus_stop",
+      "lat": 25.7778056,
+      "lon": -80.1938142,
+      "node_id": "492"
+    },
+    {
+      "id": "1039700509",
+      "name": "Biscayne Boulevard & Northeast 3rd Street",
+      "type": "bus_stop",
+      "lat": 25.7775933,
+      "lon": -80.1884913,
+      "node_id": "680"
+    },
+    {
+      "id": "1039700535",
+      "name": "Biscayne Boulevard & Chopin Plaza",
+      "type": "bus_stop",
+      "lat": 25.7725703,
+      "lon": -80.1870778,
+      "node_id": "454"
+    },
+    {
+      "id": "1039700583",
+      "name": "Biscayne Boulevard & Northeast 2nd Street",
+      "type": "bus_stop",
+      "lat": 25.7766059,
+      "lon": -80.1875155,
+      "node_id": "598"
+    },
+    {
+      "id": "1039700625",
+      "name": "Biscayne Boulevard & Northeast 4th Street",
+      "type": "bus_stop",
+      "lat": 25.777971,
+      "lon": -80.1878948,
+      "node_id": "1030"
+    },
+    {
+      "id": "1813316250",
+      "name": "Bubba Gump Shrimp Company",
+      "type": "unknown",
+      "lat": 25.7783245,
+      "lon": -80.1870173,
+      "node_id": "156"
+    },
+    {
+      "id": "2001783892",
+      "name": "Avis",
+      "type": "unknown",
+      "lat": 25.7726887,
+      "lon": -80.1920696,
+      "node_id": "214"
+    },
+    {
+      "id": "2095388208",
+      "name": "Biscayne Boulevard & Northeast 5th Street",
+      "type": "unknown",
+      "lat": 25.779158,
+      "lon": -80.1884167,
+      "node_id": "743"
+    },
+    {
+      "id": "2294769837",
+      "name": "7-Eleven",
+      "type": "unknown",
+      "lat": 25.7753719,
+      "lon": -80.188012,
+      "node_id": "716"
+    },
+    {
+      "id": "2294769838",
+      "name": "CVS Pharmacy",
+      "type": "unknown",
+      "lat": 25.7763999,
+      "lon": -80.1882724,
+      "node_id": "973"
+    },
+    {
+      "id": "2419116024",
+      "name": "CRM Jewelers",
+      "type": "unknown",
+      "lat": 25.7750632,
+      "lon": -80.1925459,
+      "node_id": "806"
+    },
+    {
+      "id": "2576132724",
+      "name": "League Against Aids Inc",
+      "type": "unknown",
+      "lat": 25.7741517,
+      "lon": -80.1930339,
+      "node_id": "253"
+    },
+    {
+      "id": "2587308159",
+      "name": "Bitnoni",
+      "type": "unknown",
+      "lat": 25.7759269,
+      "lon": -80.1901623,
+      "node_id": "975"
+    },
+    {
+      "id": "3247556835",
+      "name": "New World School of the Arts",
+      "type": "unknown",
+      "lat": 25.7763035,
+      "lon": -80.1929913,
+      "node_id": "267"
+    },
+    {
+      "id": "3247965416",
+      "name": "CVI.CHE 105",
+      "type": "unknown",
+      "lat": 25.7754409,
+      "lon": -80.1884655,
+      "node_id": "718"
+    },
+    {
+      "id": "3358237759",
+      "name": "Electric Avenue - Camera/Electronics Superstore",
+      "type": "unknown",
+      "lat": 25.7744246,
+      "lon": -80.1888048,
+      "node_id": "776"
+    },
+    {
+      "id": "3406437127",
+      "name": "SwitchMIA Miami Colocation",
+      "type": "unknown",
+      "lat": 25.7759632,
+      "lon": -80.1931007,
+      "node_id": "267"
+    },
+    {
+      "id": "4142568497",
+      "name": "Residences at Bayside - by Elite City Stays",
+      "type": "unknown",
+      "lat": 25.776957,
+      "lon": -80.1886936,
+      "node_id": "560"
+    },
+    {
+      "id": "4190506745",
+      "name": "Smoothie King",
+      "type": "unknown",
+      "lat": 25.7770775,
+      "lon": -80.1884698,
+      "node_id": "560"
+    },
+    {
+      "id": "4235831896",
+      "name": "7-Eleven",
+      "type": "unknown",
+      "lat": 25.77697,
+      "lon": -80.190611,
+      "node_id": "649"
+    },
+    {
+      "id": "4235831897",
+      "name": "Subway",
+      "type": "unknown",
+      "lat": 25.777004,
+      "lon": -80.1895199,
+      "node_id": "561"
+    },
+    {
+      "id": "4235839089",
+      "name": "Cafe Papillon",
+      "type": "unknown",
+      "lat": 25.7770983,
+      "lon": -80.1885293,
+      "node_id": "560"
+    },
+    {
+      "id": "4319353793",
+      "name": "Peruano",
+      "type": "unknown",
+      "lat": 25.7755143,
+      "lon": -80.1886192,
+      "node_id": "96"
+    },
+    {
+      "id": "4454960493",
+      "name": "National Reporting Service",
+      "type": "unknown",
+      "lat": 25.7739775,
+      "lon": -80.1951206,
+      "node_id": "640"
+    },
+    {
+      "id": "4535082493",
+      "name": "Pollos & Jarras",
+      "type": "unknown",
+      "lat": 25.7757499,
+      "lon": -80.1885319,
+      "node_id": "97"
+    },
+    {
+      "id": "4595581948",
+      "name": "Simon Bolivar",
+      "type": "unknown",
+      "lat": 25.7773873,
+      "lon": -80.1876179,
+      "node_id": "857"
+    },
+    {
+      "id": "4595581949",
+      "name": "The Torch of Friendship",
+      "type": "unknown",
+      "lat": 25.7776507,
+      "lon": -80.1876392,
+      "node_id": "858"
+    },
+    {
+      "id": "4604869790",
+      "name": "Ross",
+      "type": "unknown",
+      "lat": 25.7729326,
+      "lon": -80.187885,
+      "node_id": "353"
+    },
+    {
+      "id": "4706018094",
+      "name": "Juan Valdez Caf\u00e9",
+      "type": "unknown",
+      "lat": 25.7753372,
+      "lon": -80.1901761,
+      "node_id": "960"
+    },
+    {
+      "id": "4713855493",
+      "name": "Manna Life Food",
+      "type": "unknown",
+      "lat": 25.7750028,
+      "lon": -80.1904505,
+      "node_id": "557"
+    },
+    {
+      "id": "4761806133",
+      "name": "Walgreens",
+      "type": "unknown",
+      "lat": 25.7743003,
+      "lon": -80.1934807,
+      "node_id": "895"
+    },
+    {
+      "id": "4773221378",
+      "name": "Whole Foods Market",
+      "type": "unknown",
+      "lat": 25.7722816,
+      "lon": -80.1895294,
+      "node_id": "397"
+    },
+    {
+      "id": "4800530590",
+      "name": "Footman Law Firm, P.A.",
+      "type": "unknown",
+      "lat": 25.7721727,
+      "lon": -80.1916397,
+      "node_id": "502"
+    },
+    {
+      "id": "4993345321",
+      "name": "Clos Bistro & Cafe",
+      "type": "unknown",
+      "lat": 25.7731166,
+      "lon": -80.1878307,
+      "node_id": "834"
+    },
+    {
+      "id": "4993345421",
+      "name": "Juan Valdez Caf\u00e9",
+      "type": "unknown",
+      "lat": 25.7731357,
+      "lon": -80.188083,
+      "node_id": "832"
+    },
+    {
+      "id": "5036098663",
+      "name": "Total Bank",
+      "type": "unknown",
+      "lat": 25.7722518,
+      "lon": -80.1914324,
+      "node_id": "502"
+    },
+    {
+      "id": "5111900626",
+      "name": "Tourist information",
+      "type": "unknown",
+      "lat": 25.7781265,
+      "lon": -80.1874373,
+      "node_id": "1030"
+    },
+    {
+      "id": "5252165022",
+      "name": "La Province",
+      "type": "unknown",
+      "lat": 25.774401,
+      "lon": -80.1890716,
+      "node_id": "778"
+    },
+    {
+      "id": "5384767022",
+      "name": "HSBC",
+      "type": "unknown",
+      "lat": 25.7740838,
+      "lon": -80.188251,
+      "node_id": "91"
+    },
+    {
+      "id": "5384777421",
+      "name": "HSBC",
+      "type": "unknown",
+      "lat": 25.7741266,
+      "lon": -80.1880536,
+      "node_id": "803"
+    },
+    {
+      "id": "5422663628",
+      "name": "LaMuse Cafe",
+      "type": "unknown",
+      "lat": 25.7707606,
+      "lon": -80.1893394,
+      "node_id": "137"
+    },
+    {
+      "id": "5422749426",
+      "name": "Jar and Fork",
+      "type": "unknown",
+      "lat": 25.77328,
+      "lon": -80.1892196,
+      "node_id": "829"
+    },
+    {
+      "id": "5422777121",
+      "name": "Manna Life Food",
+      "type": "unknown",
+      "lat": 25.7758169,
+      "lon": -80.190464,
+      "node_id": "976"
+    },
+    {
+      "id": "5453990515",
+      "name": "UTS Locksmith Miami",
+      "type": "unknown",
+      "lat": 25.774314,
+      "lon": -80.193995,
+      "node_id": "255"
+    },
+    {
+      "id": "5579565587",
+      "name": "MiamiCentral",
+      "type": "unknown",
+      "lat": 25.7774977,
+      "lon": -80.1959061,
+      "node_id": "145"
+    },
+    {
+      "id": "5579565591",
+      "name": "MiamiCentral",
+      "type": "unknown",
+      "lat": 25.7775098,
+      "lon": -80.1955732,
+      "node_id": "534"
+    },
+    {
+      "id": "5579565595",
+      "name": "MiamiCentral",
+      "type": "unknown",
+      "lat": 25.7775089,
+      "lon": -80.1955157,
+      "node_id": "534"
+    },
+    {
+      "id": "5579565596",
+      "name": "MiamiCentral",
+      "type": "unknown",
+      "lat": 25.7775002,
+      "lon": -80.1957329,
+      "node_id": "636"
+    },
+    {
+      "id": "5579565834",
+      "name": "MiamiCentral",
+      "type": "unknown",
+      "lat": 25.7774944,
+      "lon": -80.1959601,
+      "node_id": "145"
+    },
+    {
+      "id": "5634060961",
+      "name": "Miami Central",
+      "type": "unknown",
+      "lat": 25.777652,
+      "lon": -80.1957242,
+      "node_id": "533"
+    },
+    {
+      "id": "5724537972",
+      "name": "lowercase, a law firm",
+      "type": "unknown",
+      "lat": 25.7754676,
+      "lon": -80.1918986,
+      "node_id": "183"
+    },
+    {
+      "id": "6085553688",
+      "name": "Ocean Bank",
+      "type": "unknown",
+      "lat": 25.7735584,
+      "lon": -80.1903765,
+      "node_id": "88"
+    },
+    {
+      "id": "6085573501",
+      "name": "Smoothie Spot",
+      "type": "unknown",
+      "lat": 25.7767251,
+      "lon": -80.192178,
+      "node_id": "189"
+    },
+    {
+      "id": "6085573552",
+      "name": "Shoe Gallery",
+      "type": "unknown",
+      "lat": 25.7769139,
+      "lon": -80.1921857,
+      "node_id": "190"
+    },
+    {
+      "id": "6085573553",
+      "name": "Miami Sun Hotel",
+      "type": "unknown",
+      "lat": 25.776661,
+      "lon": -80.1921793,
+      "node_id": "189"
+    },
+    {
+      "id": "6110284189",
+      "name": "Meraki Greek Bistro",
+      "type": "unknown",
+      "lat": 25.7729562,
+      "lon": -80.1921459,
+      "node_id": "1009"
+    },
+    {
+      "id": "6114013485",
+      "name": "Cafe Galleria",
+      "type": "unknown",
+      "lat": 25.7734606,
+      "lon": -80.1921838,
+      "node_id": "235"
+    },
+    {
+      "id": "6114167485",
+      "name": "Clove Mediterranean Kitchen",
+      "type": "unknown",
+      "lat": 25.7728275,
+      "lon": -80.1886555,
+      "node_id": "356"
+    },
+    {
+      "id": "6114243285",
+      "name": "Atlantis Cafe",
+      "type": "unknown",
+      "lat": 25.775031,
+      "lon": -80.1939485,
+      "node_id": "176"
+    },
+    {
+      "id": "6211833167",
+      "name": "La Granja",
+      "type": "unknown",
+      "lat": 25.7727287,
+      "lon": -80.1900766,
+      "node_id": "607"
+    },
+    {
+      "id": "6405183517",
+      "name": "T-Mobile",
+      "type": "unknown",
+      "lat": 25.7766992,
+      "lon": -80.1883923,
+      "node_id": "546"
+    },
+    {
+      "id": "6437490794",
+      "name": "Consulate General of Israel, Miami",
+      "type": "unknown",
+      "lat": 25.775462,
+      "lon": -80.1881288,
+      "node_id": "717"
+    },
+    {
+      "id": "6548237629",
+      "name": "Consulate General of Germany",
+      "type": "unknown",
+      "lat": 25.7755568,
+      "lon": -80.188101,
+      "node_id": "727"
+    },
+    {
+      "id": "6548242553",
+      "name": "Consulate General of Canada",
+      "type": "unknown",
+      "lat": 25.7722262,
+      "lon": -80.1880918,
+      "node_id": "354"
+    },
+    {
+      "id": "6583012889",
+      "name": "Julia B. Tuttle's Homestead",
+      "type": "unknown",
+      "lat": 25.7709148,
+      "lon": -80.1923196,
+      "node_id": "582"
+    },
+    {
+      "id": "6583012899",
+      "name": "Government Center Metrorail Station 2nd Floor",
+      "type": "unknown",
+      "lat": 25.7754556,
+      "lon": -80.19602,
+      "node_id": "463"
+    },
+    {
+      "id": "6598076835",
+      "name": "EuroExchange",
+      "type": "unknown",
+      "lat": 25.7751007,
+      "lon": -80.1894039,
+      "node_id": "721"
+    },
+    {
+      "id": "6598076836",
+      "name": "Euro Money Exchange",
+      "type": "unknown",
+      "lat": 25.7753764,
+      "lon": -80.1885232,
+      "node_id": "718"
+    },
+    {
+      "id": "6598086515",
+      "name": "EuroExchange",
+      "type": "unknown",
+      "lat": 25.7748254,
+      "lon": -80.1884184,
+      "node_id": "93"
+    },
+    {
+      "id": "6612182883",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.7760632,
+      "lon": -80.1961058,
+      "node_id": "1029"
+    },
+    {
+      "id": "6612239245",
+      "name": "Riverwalk",
+      "type": "unknown",
+      "lat": 25.7709664,
+      "lon": -80.1925784,
+      "node_id": "580"
+    },
+    {
+      "id": "6612239246",
+      "name": "Riverwalk",
+      "type": "unknown",
+      "lat": 25.7711257,
+      "lon": -80.1925495,
+      "node_id": "580"
+    },
+    {
+      "id": "6708345057",
+      "name": "Bayfront Park",
+      "type": "unknown",
+      "lat": 25.7729879,
+      "lon": -80.18737,
+      "node_id": "835"
+    },
+    {
+      "id": "6708345058",
+      "name": "Bayfront Park",
+      "type": "unknown",
+      "lat": 25.7731931,
+      "lon": -80.187291,
+      "node_id": "435"
+    },
+    {
+      "id": "6708424179",
+      "name": "Knight Center",
+      "type": "unknown",
+      "lat": 25.7719105,
+      "lon": -80.1915757,
+      "node_id": "39"
+    },
+    {
+      "id": "6708424180",
+      "name": "Knight Center",
+      "type": "unknown",
+      "lat": 25.7718243,
+      "lon": -80.1913031,
+      "node_id": "37"
+    },
+    {
+      "id": "6708437583",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.776066,
+      "lon": -80.1961129,
+      "node_id": "1029"
+    },
+    {
+      "id": "6708437584",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.7760648,
+      "lon": -80.1960762,
+      "node_id": "1029"
+    },
+    {
+      "id": "6708444840",
+      "name": "First Street",
+      "type": "unknown",
+      "lat": 25.7758324,
+      "lon": -80.1898198,
+      "node_id": "971"
+    },
+    {
+      "id": "6708444841",
+      "name": "First Street",
+      "type": "unknown",
+      "lat": 25.7756231,
+      "lon": -80.1899006,
+      "node_id": "976"
+    },
+    {
+      "id": "6708448701",
+      "name": "College Bayside",
+      "type": "unknown",
+      "lat": 25.7776864,
+      "lon": -80.189887,
+      "node_id": "688"
+    },
+    {
+      "id": "6708448702",
+      "name": "College Bayside",
+      "type": "unknown",
+      "lat": 25.7774885,
+      "lon": -80.1899705,
+      "node_id": "562"
+    },
+    {
+      "id": "6708448703",
+      "name": "College North",
+      "type": "unknown",
+      "lat": 25.7788935,
+      "lon": -80.1919938,
+      "node_id": "910"
+    },
+    {
+      "id": "6708448704",
+      "name": "College North",
+      "type": "unknown",
+      "lat": 25.778966,
+      "lon": -80.1922118,
+      "node_id": "212"
+    },
+    {
+      "id": "6708450639",
+      "name": "Wilkie D. Ferguson, Jr.",
+      "type": "unknown",
+      "lat": 25.7787955,
+      "lon": -80.1952309,
+      "node_id": "530"
+    },
+    {
+      "id": "6708450640",
+      "name": "Wilkie D. Ferguson, Jr.",
+      "type": "unknown",
+      "lat": 25.7788675,
+      "lon": -80.1954343,
+      "node_id": "945"
+    },
+    {
+      "id": "6708457709",
+      "name": "Third Street",
+      "type": "unknown",
+      "lat": 25.7719672,
+      "lon": -80.1934062,
+      "node_id": "512"
+    },
+    {
+      "id": "6708474438",
+      "name": "Miami Avenue",
+      "type": "unknown",
+      "lat": 25.7733745,
+      "lon": -80.1936357,
+      "node_id": "938"
+    },
+    {
+      "id": "6933187385",
+      "name": "Novikov",
+      "type": "unknown",
+      "lat": 25.7713741,
+      "lon": -80.1877155,
+      "node_id": "915"
+    },
+    {
+      "id": "6935717880",
+      "name": "Silverspot Cinema",
+      "type": "unknown",
+      "lat": 25.771394,
+      "lon": -80.1884371,
+      "node_id": "1046"
+    },
+    {
+      "id": "7272960289",
+      "name": "FlixBus Miami Bayside Marketplace",
+      "type": "unknown",
+      "lat": 25.7778622,
+      "lon": -80.1874707,
+      "node_id": "858"
+    },
+    {
+      "id": "7272960290",
+      "name": "FlixBus Miami Bayside Marketplace",
+      "type": "bus_stop",
+      "lat": 25.7778918,
+      "lon": -80.1873673,
+      "node_id": "858"
+    },
+    {
+      "id": "7543026593",
+      "name": "Brickell",
+      "type": "unknown",
+      "lat": 25.7633616,
+      "lon": -80.1955103,
+      "node_id": "843"
+    },
+    {
+      "id": "7543026594",
+      "name": "Brickell",
+      "type": "unknown",
+      "lat": 25.7642421,
+      "lon": -80.1954173,
+      "node_id": "843"
+    },
+    {
+      "id": "7563535810",
+      "name": "Northwest 1st Street & North Miami Avenue",
+      "type": "unknown",
+      "lat": 25.7751164,
+      "lon": -80.1939803,
+      "node_id": "176"
+    },
+    {
+      "id": "7563535811",
+      "name": "Northeast 3rd Street & Northeast 2nd Avenue",
+      "type": "unknown",
+      "lat": 25.7771516,
+      "lon": -80.1899855,
+      "node_id": "562"
+    },
+    {
+      "id": "7563535812",
+      "name": "Northeast 3rd Street & Northeast 2nd Avenue",
+      "type": "bus_stop",
+      "lat": 25.7772203,
+      "lon": -80.1899781,
+      "node_id": "562"
+    },
+    {
+      "id": "7563535813",
+      "name": "Biscayne Boulevard & Northeast 3rd Street",
+      "type": "unknown",
+      "lat": 25.7775922,
+      "lon": -80.1883956,
+      "node_id": "680"
+    },
+    {
+      "id": "7563535814",
+      "name": "Biscayne Boulevard & Northeast 5th Street",
+      "type": "unknown",
+      "lat": 25.7788603,
+      "lon": -80.1887692,
+      "node_id": "675"
+    },
+    {
+      "id": "7563535824",
+      "name": "Biscayne Boulevard & Northeast 4th Street",
+      "type": "unknown",
+      "lat": 25.777958,
+      "lon": -80.1880007,
+      "node_id": "1030"
+    },
+    {
+      "id": "7563535825",
+      "name": "Biscayne Boulevard & Northeast 2nd Street",
+      "type": "unknown",
+      "lat": 25.7765874,
+      "lon": -80.1876077,
+      "node_id": "598"
+    },
+    {
+      "id": "7563535826",
+      "name": "Biscayne Boulevard & East Flagler Street",
+      "type": "unknown",
+      "lat": 25.7741675,
+      "lon": -80.1871958,
+      "node_id": "525"
+    },
+    {
+      "id": "7563535827",
+      "name": "Biscayne Boulevard & East Flagler Street",
+      "type": "bus_stop",
+      "lat": 25.7741781,
+      "lon": -80.1870988,
+      "node_id": "525"
+    },
+    {
+      "id": "7563535828",
+      "name": "Southeast 1st Street & Southeast 3rd Avenue",
+      "type": "unknown",
+      "lat": 25.7734933,
+      "lon": -80.188686,
+      "node_id": "825"
+    },
+    {
+      "id": "7563535829",
+      "name": "Southeast 1st Street & Southeast 1st Avenue",
+      "type": "unknown",
+      "lat": 25.7733718,
+      "lon": -80.1914513,
+      "node_id": "578"
+    },
+    {
+      "id": "7563535832",
+      "name": "Stephen P. Clark Center",
+      "type": "unknown",
+      "lat": 25.7750028,
+      "lon": -80.1972492,
+      "node_id": "468"
+    },
+    {
+      "id": "7576369039",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.7753538,
+      "lon": -80.1961293,
+      "node_id": "465"
+    },
+    {
+      "id": "7576369040",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.7766624,
+      "lon": -80.1960502,
+      "node_id": "635"
+    },
+    {
+      "id": "7576382520",
+      "name": "Historic Overtown/Lyric Theatre",
+      "type": "unknown",
+      "lat": 25.7805129,
+      "lon": -80.1963186,
+      "node_id": "414"
+    },
+    {
+      "id": "7576382521",
+      "name": "Historic Overtown/Lyric Theatre",
+      "type": "unknown",
+      "lat": 25.7813848,
+      "lon": -80.1962479,
+      "node_id": "414"
+    },
+    {
+      "id": "7590515757",
+      "name": "Northwest 1st Avenue & Northwest 1st Street",
+      "type": "bus_stop",
+      "lat": 25.7754951,
+      "lon": -80.1953078,
+      "node_id": "996"
+    },
+    {
+      "id": "7590515758",
+      "name": "Northwest 3rd Street & Northwest 2nd Avenue",
+      "type": "unknown",
+      "lat": 25.7769538,
+      "lon": -80.1969573,
+      "node_id": "631"
+    },
+    {
+      "id": "7596224886",
+      "name": "Southwest 1st Avenue & Southwest 1st Street",
+      "type": "unknown",
+      "lat": 25.7735514,
+      "lon": -80.195555,
+      "node_id": "384"
+    },
+    {
+      "id": "7596224887",
+      "name": "Northwest 1st Avenue & Northwest 5th Street",
+      "type": "unknown",
+      "lat": 25.7780157,
+      "lon": -80.1952958,
+      "node_id": "531"
+    },
+    {
+      "id": "7607059425",
+      "name": "Northeast 1st Street & Northeast 1st Avenue",
+      "type": "unknown",
+      "lat": 25.7751534,
+      "lon": -80.1923927,
+      "node_id": "806"
+    },
+    {
+      "id": "7607059426",
+      "name": "Southeast 1st Avenue & East Flagler Street",
+      "type": "unknown",
+      "lat": 25.7740501,
+      "lon": -80.191921,
+      "node_id": "237"
+    },
+    {
+      "id": "7681066999",
+      "name": "Northeast 1st Avenue & Northeast 2nd Street",
+      "type": "unknown",
+      "lat": 25.7764359,
+      "lon": -80.1920141,
+      "node_id": "188"
+    },
+    {
+      "id": "7681067000",
+      "name": "Northeast 1st Avenue & Northeast 2nd Street",
+      "type": "bus_stop",
+      "lat": 25.7764347,
+      "lon": -80.1919536,
+      "node_id": "188"
+    },
+    {
+      "id": "7681067001",
+      "name": "Northeast 1st Avenue & Northeast 1st Street",
+      "type": "unknown",
+      "lat": 25.7750604,
+      "lon": -80.1919628,
+      "node_id": "182"
+    },
+    {
+      "id": "7681623302",
+      "name": "Northeast 1st Avenue & Northeast 6th Street",
+      "type": "unknown",
+      "lat": 25.7797986,
+      "lon": -80.1921398,
+      "node_id": "906"
+    },
+    {
+      "id": "7681623303",
+      "name": "Northeast 1st Avenue & Northeast 4th Street",
+      "type": "unknown",
+      "lat": 25.7777021,
+      "lon": -80.1920599,
+      "node_id": "704"
+    },
+    {
+      "id": "7681876087",
+      "name": "North Miami Avenue & North 4th Street",
+      "type": "unknown",
+      "lat": 25.7778084,
+      "lon": -80.1937509,
+      "node_id": "492"
+    },
+    {
+      "id": "7681876088",
+      "name": "Northwest 1st Avenue & West Flagler Street",
+      "type": "unknown",
+      "lat": 25.7744444,
+      "lon": -80.1955833,
+      "node_id": "568"
+    },
+    {
+      "id": "7683315525",
+      "name": "Southeast 2nd Avenue & Southeast 4th Street",
+      "type": "unknown",
+      "lat": 25.7710668,
+      "lon": -80.1901323,
+      "node_id": "690"
+    },
+    {
+      "id": "7683315526",
+      "name": "Biscayne Boulevard & Chopin Plaza",
+      "type": "unknown",
+      "lat": 25.7725854,
+      "lon": -80.1871516,
+      "node_id": "454"
+    },
+    {
+      "id": "7683336533",
+      "name": "Downtown Metrobus Terminal",
+      "type": "unknown",
+      "lat": 25.773776,
+      "lon": -80.1958637,
+      "node_id": "1017"
+    },
+    {
+      "id": "7683336534",
+      "name": "Downtown Metrobus Terminal",
+      "type": "bus_stop",
+      "lat": 25.773776,
+      "lon": -80.1959132,
+      "node_id": "1017"
+    },
+    {
+      "id": "7683336535",
+      "name": "Downtown Metrobus Terminal",
+      "type": "bus_stop",
+      "lat": 25.7739106,
+      "lon": -80.1956879,
+      "node_id": "383"
+    },
+    {
+      "id": "7683336536",
+      "name": "Downtown Metrobus Terminal",
+      "type": "unknown",
+      "lat": 25.7739106,
+      "lon": -80.1957503,
+      "node_id": "644"
+    },
+    {
+      "id": "7683336539",
+      "name": "Southwest 1st Avenue & Southwest 1st Street",
+      "type": "unknown",
+      "lat": 25.7729892,
+      "lon": -80.1955365,
+      "node_id": "541"
+    },
+    {
+      "id": "7683336540",
+      "name": "Southwest 1st Avenue & Southwest 1st Street",
+      "type": "bus_stop",
+      "lat": 25.7729874,
+      "lon": -80.1956208,
+      "node_id": "541"
+    },
+    {
+      "id": "7683371842",
+      "name": "Northwest 5th Street & Northwest 2nd Avenue",
+      "type": "unknown",
+      "lat": 25.7788572,
+      "lon": -80.1973737,
+      "node_id": "572"
+    },
+    {
+      "id": "7684062109",
+      "name": "Northeast 2nd Avenue & Northeast 4th Street",
+      "type": "unknown",
+      "lat": 25.7778658,
+      "lon": -80.1903951,
+      "node_id": "518"
+    },
+    {
+      "id": "7684062110",
+      "name": "Northeast 2nd Avenue & Northeast 4th Street",
+      "type": "bus_stop",
+      "lat": 25.7778606,
+      "lon": -80.1904861,
+      "node_id": "518"
+    },
+    {
+      "id": "7706402235",
+      "name": "Southeast 1st Street & Biscayne Boulevard",
+      "type": "bus_stop",
+      "lat": 25.7734161,
+      "lon": -80.188059,
+      "node_id": "832"
+    },
+    {
+      "id": "7706402236",
+      "name": "Southeast 1st Street & Biscayne Boulevard",
+      "type": "unknown",
+      "lat": 25.7735022,
+      "lon": -80.1880644,
+      "node_id": "832"
+    },
+    {
+      "id": "7706402237",
+      "name": "Southeast 1st Street & Southeast 2nd Avenue",
+      "type": "bus_stop",
+      "lat": 25.7733696,
+      "lon": -80.1897481,
+      "node_id": "603"
+    },
+    {
+      "id": "7706402238",
+      "name": "Southeast 1st Street & Southeast 2nd Avenue",
+      "type": "unknown",
+      "lat": 25.7734471,
+      "lon": -80.1897508,
+      "node_id": "603"
+    },
+    {
+      "id": "7706402239",
+      "name": "Southeast 1st Street & South Miami Avenue",
+      "type": "bus_stop",
+      "lat": 25.7732778,
+      "lon": -80.1929513,
+      "node_id": "231"
+    },
+    {
+      "id": "7706402240",
+      "name": "Southeast 1st Street & South Miami Avenue",
+      "type": "unknown",
+      "lat": 25.7733269,
+      "lon": -80.1929553,
+      "node_id": "231"
+    },
+    {
+      "id": "7706402241",
+      "name": "Northwest 1st Street & Northwest Miami Court",
+      "type": "unknown",
+      "lat": 25.775097,
+      "lon": -80.1947608,
+      "node_id": "458"
+    },
+    {
+      "id": "7706402242",
+      "name": "Northwest 1st Street & Northwest Miami Court",
+      "type": "bus_stop",
+      "lat": 25.7751461,
+      "lon": -80.1947625,
+      "node_id": "458"
+    },
+    {
+      "id": "7706402243",
+      "name": "Northeast 2nd Avenue & Northeast 1st Street",
+      "type": "unknown",
+      "lat": 25.7755732,
+      "lon": -80.1903119,
+      "node_id": "976"
+    },
+    {
+      "id": "7706402244",
+      "name": "Northeast 2nd Avenue & Northeast 1st Street",
+      "type": "bus_stop",
+      "lat": 25.775572,
+      "lon": -80.1903791,
+      "node_id": "976"
+    },
+    {
+      "id": "7844732308",
+      "name": "Carribean Life",
+      "type": "unknown",
+      "lat": 25.7784319,
+      "lon": -80.1870331,
+      "node_id": "156"
+    },
+    {
+      "id": "8430170707",
+      "name": "Government Center",
+      "type": "unknown",
+      "lat": 25.776062,
+      "lon": -80.1961054,
+      "node_id": "1029"
+    },
+    {
+      "id": "8674303312",
+      "name": "Rigattis Cafe",
+      "type": "unknown",
+      "lat": 25.7732188,
+      "lon": -80.193904,
+      "node_id": "815"
+    },
+    {
+      "id": "8688955185",
+      "name": "La Licuadora",
+      "type": "unknown",
+      "lat": 25.7750532,
+      "lon": -80.1901604,
+      "node_id": "557"
+    },
+    {
+      "id": "8695151745",
+      "name": "New York Roma Pizza",
+      "type": "unknown",
+      "lat": 25.7728274,
+      "lon": -80.1900992,
+      "node_id": "607"
+    },
+    {
+      "id": "8698410413",
+      "name": "Vero italian",
+      "type": "unknown",
+      "lat": 25.7732191,
+      "lon": -80.1923208,
+      "node_id": "234"
+    },
+    {
+      "id": "8786362780",
+      "name": "GVA BOX",
+      "type": "unknown",
+      "lat": 25.7747467,
+      "lon": -80.192091,
+      "node_id": "805"
+    },
+    {
+      "id": "9044583017",
+      "name": "mi carro ahora",
+      "type": "unknown",
+      "lat": 25.7765644,
+      "lon": -80.1877436,
+      "node_id": "598"
+    },
+    {
+      "id": "9173305501",
+      "name": "James L. Knight Center Theater",
+      "type": "unknown",
+      "lat": 25.7711487,
+      "lon": -80.1914435,
+      "node_id": "937"
+    },
+    {
+      "id": "9173305514",
+      "name": "Miami Convention Center",
+      "type": "unknown",
+      "lat": 25.7709145,
+      "lon": -80.1910318,
+      "node_id": "370"
+    },
+    {
+      "id": "9173305516",
+      "name": "Ashe Auditorium",
+      "type": "unknown",
+      "lat": 25.7709597,
+      "lon": -80.1907263,
+      "node_id": "980"
+    },
+    {
+      "id": "9191076128",
+      "name": "FedEx",
+      "type": "unknown",
+      "lat": 25.7724078,
+      "lon": -80.1936781,
+      "node_id": "509"
+    },
+    {
+      "id": "9191795796",
+      "name": "Miami Culinary Institute",
+      "type": "unknown",
+      "lat": 25.7785256,
+      "lon": -80.1902733,
+      "node_id": "515"
+    },
+    {
+      "id": "9321293236",
+      "name": "Miami Diner",
+      "type": "unknown",
+      "lat": 25.7730093,
+      "lon": -80.1920166,
+      "node_id": "1009"
+    },
+    {
+      "id": "9403948702",
+      "name": "City Movers Miami",
+      "type": "unknown",
+      "lat": 25.7733166,
+      "lon": -80.187824,
+      "node_id": "763"
+    },
+    {
+      "id": "9473053829",
+      "name": "Sim\u00f3n Bol\u00edvar",
+      "type": "unknown",
+      "lat": 25.7745213,
+      "lon": -80.187472,
+      "node_id": "800"
+    },
+    {
+      "id": "9501636481",
+      "name": "Stephen P. Clark Center",
+      "type": "unknown",
+      "lat": 25.7750127,
+      "lon": -80.1967221,
+      "node_id": "467"
+    },
+    {
+      "id": "9501636483",
+      "name": "Southeast 1st Avenue & Southeast 2nd Street",
+      "type": "unknown",
+      "lat": 25.7723551,
+      "lon": -80.191853,
+      "node_id": "502"
+    },
+    {
+      "id": "9501636484",
+      "name": "Southeast 1st Avenue & Southeast 2nd Street",
+      "type": "bus_stop",
+      "lat": 25.772315,
+      "lon": -80.191793,
+      "node_id": "502"
+    },
+    {
+      "id": "9501636492",
+      "name": "Southwest 1st Street & South Miami Avenue",
+      "type": "unknown",
+      "lat": 25.7732936,
+      "lon": -80.1940098,
+      "node_id": "815"
+    },
+    {
+      "id": "9501636493",
+      "name": "Southwest 1st Street & South Miami Avenue",
+      "type": "bus_stop",
+      "lat": 25.773219,
+      "lon": -80.194202,
+      "node_id": "812"
+    },
+    {
+      "id": "9586789117",
+      "name": "Yotel Miami",
+      "type": "unknown",
+      "lat": 25.777435,
+      "lon": -80.1897088,
+      "node_id": "562"
+    },
+    {
+      "id": "9882017556",
+      "name": "Mama Tried",
+      "type": "unknown",
+      "lat": 25.7753387,
+      "lon": -80.1900819,
+      "node_id": "723"
+    },
+    {
+      "id": "9882018349",
+      "name": "Saloni By Meraki",
+      "type": "unknown",
+      "lat": 25.7730059,
+      "lon": -80.1920172,
+      "node_id": "1009"
+    },
+    {
+      "id": "9882027171",
+      "name": "Motek - Mediterranean Cafe & Restaurant",
+      "type": "unknown",
+      "lat": 25.7749083,
+      "lon": -80.1928576,
+      "node_id": "806"
+    },
+    {
+      "id": "9882027534",
+      "name": "Manolo & Rene Grill",
+      "type": "unknown",
+      "lat": 25.7760781,
+      "lon": -80.1887709,
+      "node_id": "97"
+    },
+    {
+      "id": "9882027951",
+      "name": "Ten Fruits",
+      "type": "unknown",
+      "lat": 25.7761374,
+      "lon": -80.1884493,
+      "node_id": "973"
+    },
+    {
+      "id": "10115423559",
+      "name": "USA Locksmith's",
+      "type": "unknown",
+      "lat": 25.7770513,
+      "lon": -80.1886118,
+      "node_id": "560"
+    },
+    {
+      "id": "10558585009",
+      "name": "Premier Cruise Parking - 7th Floor",
+      "type": "unknown",
+      "lat": 25.7722757,
+      "lon": -80.189097,
+      "node_id": "930"
+    },
+    {
+      "id": "10612936199",
+      "name": "Yotel Miami",
+      "type": "unknown",
+      "lat": 25.7764295,
+      "lon": -80.1897375,
+      "node_id": "971"
+    },
+    {
+      "id": "10612936200",
+      "name": "Yotelpad Miami",
+      "type": "unknown",
+      "lat": 25.7764014,
+      "lon": -80.1896463,
+      "node_id": "971"
+    },
+    {
+      "id": "10623283302",
+      "name": "Practical Locksmith Co.",
+      "type": "unknown",
+      "lat": 25.7739432,
+      "lon": -80.195142,
+      "node_id": "640"
+    },
+    {
+      "id": "10677295005",
+      "name": "Miami Bull",
+      "type": "unknown",
+      "lat": 25.7782004,
+      "lon": -80.1918556,
+      "node_id": "706"
+    },
+    {
+      "id": "10781661352",
+      "name": "Amarres de amor Florida",
+      "type": "unknown",
+      "lat": 25.7752852,
+      "lon": -80.1925692,
+      "node_id": "806"
+    },
+    {
+      "id": "10862417361",
+      "name": "Miami Video Productions Company",
+      "type": "unknown",
+      "lat": 25.7715126,
+      "lon": -80.188709,
+      "node_id": "1047"
+    },
+    {
+      "id": "10911063312",
+      "name": "Miami Movers for Less",
+      "type": "unknown",
+      "lat": 25.7744976,
+      "lon": -80.1911871,
+      "node_id": "555"
+    },
+    {
+      "id": "11090903666",
+      "name": "Comida de la Tierra Colombian Cuisine",
+      "type": "unknown",
+      "lat": 25.7751429,
+      "lon": -80.188974,
+      "node_id": "720"
+    },
+    {
+      "id": "11103124760",
+      "name": "FDP Mold Remediation of Miami",
+      "type": "unknown",
+      "lat": 25.7714932,
+      "lon": -80.1887443,
+      "node_id": "1046"
+    },
+    {
+      "id": "11105812031",
+      "name": "Kobe Digital",
+      "type": "unknown",
+      "lat": 25.7721283,
+      "lon": -80.1877667,
+      "node_id": "920"
+    },
+    {
+      "id": "11148611303",
+      "name": "David Howard Goldberg, P.L.",
+      "type": "unknown",
+      "lat": 25.7738523,
+      "lon": -80.1883277,
+      "node_id": "827"
+    },
+    {
+      "id": "11346711301",
+      "name": "Tacos El Porky",
+      "type": "unknown",
+      "lat": 25.7739948,
+      "lon": -80.1937897,
+      "node_id": "255"
+    },
+    {
+      "id": "11394328231",
+      "name": "Kingz Creations",
+      "type": "unknown",
+      "lat": 25.7739632,
+      "lon": -80.1951196,
+      "node_id": "640"
+    },
+    {
+      "id": "11527663170",
+      "name": "USA Locksmith's",
+      "type": "unknown",
+      "lat": 25.774779,
+      "lon": -80.193757,
+      "node_id": "894"
+    },
+    {
+      "id": "11879279065",
+      "name": "Comfort Inn & Suites",
+      "type": "unknown",
+      "lat": 25.7711848,
+      "lon": -80.191772,
+      "node_id": "791"
+    },
+    {
+      "id": "11945892130",
+      "name": "Passport Health Downtown Miami Travel Clinic",
+      "type": "unknown",
+      "lat": 25.773643,
+      "lon": -80.1899546,
+      "node_id": "602"
+    },
+    {
+      "id": "12412861080",
+      "name": "David W. Dyer Building and United States Courthouse",
+      "type": "unknown",
+      "lat": 25.7775659,
+      "lon": -80.1922796,
+      "node_id": "704"
+    },
+    {
+      "id": "12507229031",
+      "name": "Section of the Berlin Wall",
+      "type": "unknown",
+      "lat": 25.7773686,
+      "lon": -80.19054,
+      "node_id": "519"
+    },
+    {
+      "id": "12652323323",
+      "name": "Alberto Cortes Cosmetics & Perfumes",
+      "type": "unknown",
+      "lat": 25.7741116,
+      "lon": -80.1892143,
+      "node_id": "779"
+    },
+    {
+      "id": "12718774473",
+      "name": "Stop n Shop Food n Deli",
+      "type": "unknown",
+      "lat": 25.7751106,
+      "lon": -80.190145,
+      "node_id": "960"
+    },
+    {
+      "id": "13374698102",
+      "name": "Northwest 1st Avenue/Northwest 1st Street - (Miami-Dade Government Center)",
+      "type": "bus_stop",
+      "lat": 25.775393,
+      "lon": -80.195579,
+      "node_id": "996"
+    },
+    {
+      "id": "13374698365",
+      "name": "Southeast 1st Street/Southeast 1st Avenue",
+      "type": "bus_stop",
+      "lat": 25.77331,
+      "lon": -80.191062,
+      "node_id": "1016"
+    }
+  ]
+}

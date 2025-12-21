@@ -1,324 +1,373 @@
-# =====================================
-# City Network – Fixed Conditions Version
-# =====================================
-
 import math
+import json
 
+# Open and load the places.json file
+with open("places.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
 
-# ---------- Location ----------
-class Location:
-    def __init__(self, name, x, y):
-        self.name = name
-        self.x = x
-        self.y = y
+# Dictionary to store: name -> (lat, lon)
+locations = {}
 
+# Loop through the list of places
+for place in data["places"]:
+    name = place["name"]
+    lat = place["lat"]
+    lon = place["lon"]
 
-# ---------- Street ----------
-class Street:
-    def __init__(
-        self,
-        street_name,
-        to,
-        avg_speed,
-        distance,
-        speed_limit,
-        traffic_light_delay,
-        accident,
-        closed,
-        weather
-    ):
-        self.street_name = street_name
-        self.to = to
-        self.avg_speed = avg_speed
-        self.distance = distance
-        self.speed_limit = speed_limit
-        self.traffic_light_delay = traffic_light_delay
-        self.accident = accident
-        self.closed = closed
-        self.weather = weather
+    locations[name] = (lat, lon)
 
-    # g(n)
-    def g_cost(self):
-        if self.closed or self.weather == "Snow":
-            return float("inf")
+# (Optional) print to check
+print(locations)
 
-        speed = min(self.avg_speed, self.speed_limit)
+def get_start_goal_nodes(start, goal):
+    with open("places_nodes.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
 
-        if self.weather == "Rain":
-            speed *= 0.8
-        elif self.weather == "Fog":
-            speed *= 0.7
+    start_node = None
+    goal_node = None
 
-        if self.accident:
-            speed *= 0.5
+    for place in data["places"]:
+        if place["name"] == start:
+            start_node = place["node_id"]
 
-        speed = max(speed, 1)
-        travel_time = (self.distance / speed) * 60
-        return travel_time + self.traffic_light_delay
+        if place["name"] == goal:
+            goal_node = place["node_id"]
 
+    return start_node, goal_node
 
-# ---------- h(n) ----------
-def h_cost(curr, goal, max_speed=60):
-    d = math.sqrt((curr.x - goal.x) ** 2 + (curr.y - goal.y) ** 2)
-    return (d / max_speed) * 60
+# ----------------------------------
+# Configuration (easy to tweak)
+# ----------------------------------
+INTERSECTION_PENALTY = 0.15  # ~5 sec
 
-
-# ---------- 40 Virtual Locations ----------
-locations = {
-    "Central Hospital": Location("Central Hospital", 2, 8),
-    "Children Hospital": Location("Children Hospital", 1, 8),
-    "City Clinic": Location("City Clinic", 3, 7),
-    "Main University": Location("Main University", 6, 8),
-    "Engineering Faculty": Location("Engineering Faculty", 7, 8),
-    "Medical School": Location("Medical School", 6, 7),
-    "High School": Location("High School", 4, 6),
-    "Primary School": Location("Primary School", 3, 6),
-    "International School": Location("International School", 5, 6),
-    "Central Park": Location("Central Park", 2, 5),
-    "Community Park": Location("Community Park", 4, 5),
-    "Sports Club": Location("Sports Club", 6, 5),
-    "City Mall": Location("City Mall", 7, 5),
-    "Local Market": Location("Local Market", 5, 4),
-    "Wholesale Market": Location("Wholesale Market", 6, 4),
-    "Police Station": Location("Police Station", 1, 4),
-    "Fire Station": Location("Fire Station", 2, 4),
-    "City Hall": Location("City Hall", 3, 4),
-    "Bus Terminal": Location("Bus Terminal", 4, 4),
-    "Train Station": Location("Train Station", 5, 3),
-    "Metro Hub": Location("Metro Hub", 6, 3),
-    "Residential A": Location("Residential A", 1, 3),
-    "Residential B": Location("Residential B", 2, 3),
-    "Residential C": Location("Residential C", 3, 3),
-    "Residential D": Location("Residential D", 4, 3),
-    "Residential E": Location("Residential E", 5, 2),
-    "Industrial Zone A": Location("Industrial Zone A", 7, 3),
-    "Industrial Zone B": Location("Industrial Zone B", 8, 3),
-    "Power Station": Location("Power Station", 8, 2),
-    "Water Facility": Location("Water Facility", 7, 2),
-    "Tech Park": Location("Tech Park", 6, 2),
-    "Research Center": Location("Research Center", 5, 1),
-    "Hotel Plaza": Location("Hotel Plaza", 4, 1),
-    "Business Tower": Location("Business Tower", 3, 1),
-    "Convention Center": Location("Convention Center", 2, 1),
-    "Old Town Square": Location("Old Town Square", 1, 1),
-    "Museum": Location("Museum", 2, 0),
-    "Library": Location("Library", 4, 0),
-    "Cultural Center": Location("Cultural Center", 3, 0),
+ROAD_TYPE_FACTOR = {
+    "motorway": 1.0,
+    "motorway_link": 1.05,
+    "primary": 1.1,
+    "secondary": 1.2,
+    "tertiary": 1.25,
+    "residential": 1.3
 }
 
+DEFAULT_ROAD_FACTOR = 1.3
 
-# ---------- City Graph (Fixed accidents & weather) ----------
-city_graph = {
-    "Central Hospital": [
-        Street("Emergency Road", "Children Hospital", 40, 0.6, 50, 2, False, False, "Rain"),
-        Street("Health Avenue", "City Clinic", 35, 0.8, 40, 1, True, False, "Clear"),
-        Street("Park Lane", "Central Park", 30, 1.0, 40, 2, False, False, "Fog"),
-    ],
 
-    "Children Hospital": [
-        Street("Care Street", "Central Hospital", 40, 0.6, 50, 1, False, False, "Rain"),
-        Street("School Access Road", "Primary School", 30, 0.9, 40, 2, False, False, "Clear"),
-        Street("Neighborhood Road", "Residential A", 35, 1.1, 40, 1, False, False, "Clear"),
-    ],
+# ----------------------------------
+# Uniform Cost Search (Realistic)
+# ----------------------------------
+def ucs(start_node, goal_node):
+    with open("graph.json", "r", encoding="utf-8") as f:
+        graph = json.load(f)
 
-    "City Clinic": [
-        Street("Health Avenue", "Central Hospital", 35, 0.8, 40, 1, True, False, "Clear"),
-        Street("Market Road", "Local Market", 30, 1.0, 35, 2, False, False, "Rain"),
-        Street("Community Way", "High School", 30, 0.7, 35, 1, False, False, "Clear"),
-    ],
+    edges = graph["edges"]
 
-    "Main University": [
-        Street("University Avenue", "Engineering Faculty", 25, 0.4, 30, 1, False, False, "Clear"),
-        Street("Campus Road", "Medical School", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("City Connector", "Business Tower", 45, 1.8, 60, 3, False, False, "Rain"),
-    ],
+    open_list = [(0, start_node, [start_node])]
+    closed_list = {}
 
-    "Engineering Faculty": [
-        Street("University Avenue", "Main University", 25, 0.4, 30, 1, False, False, "Clear"),
-        Street("Tech Road", "Tech Park", 35, 0.9, 40, 2, False, False, "Fog"),
-    ],
+    expanded = 0
 
-    "Medical School": [
-        Street("Campus Road", "Main University", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("Health Link", "Central Hospital", 30, 1.2, 40, 2, False, False, "Rain"),
-    ],
-    "High School": [
-        Street("Education Street", "Primary School", 30, 0.6, 35, 1, False, False, "Clear"),
-        Street("Park Walk", "Community Park", 25, 0.8, 30, 2, False, False, "Rain"),
-        Street("Neighborhood Link", "Residential C", 30, 0.7, 35, 1, False, False, "Clear"),
-    ],
+    while open_list:
+        open_list.sort(key=lambda x: x[0])
+        current_cost, current_node, path = open_list.pop(0)
 
-    "Primary School": [
-        Street("Education Street", "High School", 30, 0.6, 35, 1, False, False, "Clear"),
-        Street("Local Street", "Residential B", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("School Access Road", "Children Hospital", 30, 0.9, 40, 2, False, False, "Clear"),
-    ],
+        if current_node in closed_list and closed_list[current_node] <= current_cost:
+            continue
 
-    "International School": [
-        Street("Global Road", "High School", 35, 0.7, 40, 2, False, False, "Fog"),
-        Street("Campus Access", "Community Park", 30, 0.9, 35, 1, False, False, "Clear"),
-    ],
+        closed_list[current_node] = current_cost
+        expanded += 1
 
-    "Central Park": [
-        Street("Park Lane", "Central Hospital", 30, 1.0, 40, 2, False, False, "Fog"),
-        Street("Green Way", "Community Park", 25, 0.6, 30, 1, False, False, "Clear"),
-        Street("Museum Walk", "Museum", 20, 0.5, 25, 1, False, False, "Clear"),
-    ],
+        # Goal reached
+        if current_node == goal_node:
+            return path, current_cost, expanded
 
-    "Community Park": [
-        Street("Green Way", "Central Park", 25, 0.6, 30, 1, False, False, "Clear"),
-        Street("Park Walk", "High School", 25, 0.8, 30, 2, False, False, "Rain"),
-        Street("Cultural Road", "Cultural Center", 30, 0.9, 35, 1, False, False, "Clear"),
-    ],
+        # Expand neighbors
+        for edge in edges.get(current_node, []):
+            next_node = edge["to"]
 
-    "Sports Club": [
-        Street("Fitness Road", "Residential E", 30, 0.7, 35, 1, False, False, "Clear"),
-        Street("Arena Way", "Convention Center", 40, 1.2, 50, 2, False, False, "Clear"),
-    ],
+            # --- Option B: road type realism ---
+            road_type = edge.get("road_type")
+            factor = ROAD_TYPE_FACTOR.get(road_type, DEFAULT_ROAD_FACTOR)
 
-    "City Mall": [
-        Street("Commerce Avenue", "Business Tower", 35, 0.9, 40, 2, False, False, "Rain"),
-        Street("Market Street", "Local Market", 30, 0.7, 35, 2, False, False, "Clear"),
-        Street("Transit Road", "Metro Hub", 40, 1.1, 50, 3, False, False, "Clear"),
-    ],
+            adjusted_edge_cost = edge["cost"] * factor
 
-    "Local Market": [
-        Street("Market Street", "City Mall", 30, 0.7, 35, 2, False, False, "Clear"),
-        Street("Trade Road", "Wholesale Market", 35, 0.6, 40, 1, False, False, "Clear"),
-        Street("Market Road", "City Clinic", 30, 1.0, 35, 2, False, False, "Rain"),
-    ],
+            # --- Option A: intersection delay ---
+            new_cost = current_cost + adjusted_edge_cost + INTERSECTION_PENALTY
 
-    "Wholesale Market": [
-        Street("Trade Road", "Local Market", 35, 0.6, 40, 1, False, False, "Clear"),
-        Street("Industrial Road", "Industrial Zone A", 45, 1.5, 60, 3, False, False, "Fog"),
-    ],
+            new_path = path + [next_node]
+            open_list.append((new_cost, next_node, new_path))
 
-    "Police Station": [
-        Street("Security Road", "City Hall", 35, 0.8, 40, 1, False, False, "Clear"),
-        Street("Response Route", "Fire Station", 40, 0.6, 45, 1, False, False, "Clear"),
-    ],
+    return None, float("inf"), expanded
 
-    "Fire Station": [
-        Street("Response Route", "Police Station", 40, 0.6, 45, 1, False, False, "Clear"),
-        Street("Emergency Loop", "Industrial Zone B", 45, 1.4, 60, 3, False, False, "Rain"),
-    ],
+# ----------------------------------
+# A* Search
+# ----------------------------------
+def a_star(start_node, goal_node):
+    with open("graph.json", "r", encoding="utf-8") as f:
+        graph = json.load(f)
 
-    "City Hall": [
-        Street("Security Road", "Police Station", 35, 0.8, 40, 1, False, False, "Clear"),
-        Street("Civic Avenue", "Old Town Square", 30, 0.5, 35, 1, False, False, "Clear"),
-    ],
+    edges = graph["edges"]
+    nodes = graph["nodes"]
 
-    "Bus Terminal": [
-        Street("Transit Road", "Metro Hub", 40, 0.6, 50, 2, False, False, "Clear"),
-        Street("Station Link", "Train Station", 35, 0.7, 40, 2, False, False, "Clear"),
-    ],
+    goal_lat = nodes[goal_node]["lat"]
+    goal_lon = nodes[goal_node]["lng"]
 
-    "Train Station": [
-        Street("Station Link", "Bus Terminal", 35, 0.7, 40, 2, False, False, "Clear"),
-        Street("Rail Avenue", "Old Town Square", 30, 0.8, 35, 1, False, False, "Clear"),
-    ],
+    # OPEN: (f, g, node, path)
+    open_list = [(0, 0, start_node, [start_node])]
 
-    "Metro Hub": [
-        Street("Transit Road", "City Mall", 40, 1.1, 50, 3, False, False, "Clear"),
-        Street("Transit Road", "Bus Terminal", 40, 0.6, 50, 2, False, False, "Clear"),
-        Street("Industrial Link", "Industrial Zone A", 45, 1.3, 60, 3, False, False, "Fog"),
-    ],
+    # CLOSED: node_id -> best g-cost
+    closed_list = {}
 
-    "Residential A": [
-        Street("Neighborhood Road", "Children Hospital", 35, 1.1, 40, 1, False, False, "Clear"),
-        Street("Residential Street", "Residential B", 25, 0.4, 30, 1, False, False, "Clear"),
-    ],
+    expanded = 0
 
-    "Residential B": [
-        Street("Residential Street", "Residential A", 25, 0.4, 30, 1, False, False, "Clear"),
-        Street("Local Street", "Primary School", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("Community Link", "Residential C", 25, 0.5, 30, 1, False, False, "Clear"),
-    ],
+    while open_list:
+        open_list.sort(key=lambda x: x[0])
+        _, g_cost, current_node, path = open_list.pop(0)
 
-    "Residential C": [
-        Street("Neighborhood Link", "High School", 30, 0.7, 35, 1, False, False, "Clear"),
-        Street("Community Link", "Residential B", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("Residential Road", "Residential D", 25, 0.5, 30, 1, False, False, "Clear"),
-    ],
+        if current_node in closed_list and closed_list[current_node] <= g_cost:
+            continue
 
-    "Residential D": [
-        Street("Residential Road", "Residential C", 25, 0.5, 30, 1, False, False, "Clear"),
-        Street("Sports Access", "Sports Club", 30, 0.8, 35, 1, False, False, "Clear"),
-        Street("Mall Access", "City Mall", 35, 1.0, 40, 2, False, False, "Rain"),
-    ],
+        closed_list[current_node] = g_cost
+        expanded += 1
 
-    "Residential E": [
-        Street("Fitness Road", "Sports Club", 30, 0.7, 35, 1, False, False, "Clear"),
-        Street("Neighborhood Way", "Hotel Plaza", 35, 0.9, 40, 1, False, False, "Clear"),
-    ],
+        # Goal reached
+        if current_node == goal_node:
+            return path, g_cost, expanded
 
-    "Industrial Zone A": [
-        Street("Industrial Road", "Wholesale Market", 45, 1.5, 60, 3, False, False, "Fog"),
-        Street("Industrial Link", "Metro Hub", 45, 1.3, 60, 3, False, False, "Fog"),
-        Street("Utility Road", "Power Station", 40, 1.1, 50, 2, False, False, "Clear"),
-    ],
+        # Expand neighbors
+        for edge in edges.get(current_node, []):
+            next_node = edge["to"]
 
-    "Industrial Zone B": [
-        Street("Emergency Loop", "Fire Station", 45, 1.4, 60, 3, False, False, "Rain"),
-        Street("Service Road", "Water Facility", 40, 1.0, 50, 2, False, False, "Clear"),
-    ],
+            # --- Realistic edge cost ---
+            road_type = edge.get("road_type")
+            factor = ROAD_TYPE_FACTOR.get(road_type, DEFAULT_ROAD_FACTOR)
+            step_cost = edge["cost"] * factor + INTERSECTION_PENALTY
+            new_g = g_cost + step_cost
 
-    "Power Station": [
-        Street("Utility Road", "Industrial Zone A", 40, 1.1, 50, 2, False, False, "Clear"),
-        Street("Grid Road", "Water Facility", 35, 0.8, 45, 1, False, False, "Clear"),
-    ],
+            # --- Heuristic ---
+            lat = nodes[next_node]["lat"]
+            lon = nodes[next_node]["lng"]
+            h = haversine(lat, lon, goal_lat, goal_lon)
 
-    "Water Facility": [
-        Street("Service Road", "Industrial Zone B", 40, 1.0, 50, 2, False, False, "Clear"),
-        Street("Grid Road", "Power Station", 35, 0.8, 45, 1, False, False, "Clear"),
-    ],
+            new_f = new_g + h
+            new_path = path + [next_node]
 
-    "Tech Park": [
-        Street("Tech Road", "Engineering Faculty", 35, 0.9, 40, 2, False, False, "Fog"),
-        Street("Innovation Way", "Research Center", 30, 0.8, 35, 1, False, False, "Clear"),
-    ],
+            open_list.append((new_f, new_g, next_node, new_path))
 
-    "Research Center": [
-        Street("Innovation Way", "Tech Park", 30, 0.8, 35, 1, False, False, "Clear"),
-        Street("Science Road", "University", 35, 1.0, 40, 2, False, False, "Clear"),
-    ],
+    return None, float("inf"), expanded
 
-    "Hotel Plaza": [
-        Street("Neighborhood Way", "Residential E", 35, 0.9, 40, 1, False, False, "Clear"),
-        Street("Business Route", "Business Tower", 40, 0.8, 50, 2, False, False, "Clear"),
-    ],
 
-    "Business Tower": [
-        Street("Business Route", "Hotel Plaza", 40, 0.8, 50, 2, False, False, "Clear"),
-        Street("Commerce Avenue", "City Mall", 35, 0.9, 40, 2, False, False, "Rain"),
-        Street("City Connector", "Main University", 45, 1.8, 60, 3, False, False, "Rain"),
-    ],
+# ----------------------------------
+# Heuristic: straight-line distance
+# ----------------------------------
+def haversine(lat1, lon1, lat2, lon2):
+    R = 6371.0  # km
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+    return 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
-    "Convention Center": [
-        Street("Arena Way", "Sports Club", 40, 1.2, 50, 2, False, False, "Clear"),
-        Street("Event Road", "Old Town Square", 35, 1.0, 40, 2, False, False, "Clear"),
-    ],
 
-    "Old Town Square": [
-        Street("Civic Avenue", "City Hall", 30, 0.5, 35, 1, False, False, "Clear"),
-        Street("Rail Avenue", "Train Station", 30, 0.8, 35, 1, False, False, "Clear"),
-        Street("Event Road", "Convention Center", 35, 1.0, 40, 2, False, False, "Clear"),
-    ],
+# ----------------------------------
+# Greedy Best-First Search
+# ----------------------------------
+def greedy(start_node, goal_node):
+    with open("graph.json", "r", encoding="utf-8") as f:
+        graph = json.load(f)
 
-    "Museum": [
-        Street("Museum Walk", "Central Park", 20, 0.5, 25, 1, False, False, "Clear"),
-        Street("Culture Road", "Cultural Center", 25, 0.6, 30, 1, False, False, "Clear"),
-    ],
+    edges = graph["edges"]
+    nodes = graph["nodes"]
 
-    "Library": [
-        Street("Knowledge Street", "Cultural Center", 25, 0.7, 30, 1, False, False, "Clear"),
-        Street("Campus Access", "Main University", 30, 1.1, 40, 2, False, False, "Clear"),
-    ],
+    goal_lat = nodes[goal_node]["lat"]
+    goal_lon = nodes[goal_node]["lng"]
 
-    "Cultural Center": [
-        Street("Culture Road", "Museum", 25, 0.6, 30, 1, False, False, "Clear"),
-        Street("Cultural Road", "Community Park", 30, 0.9, 35, 1, False, False, "Clear"),
-        Street("Knowledge Street", "Library", 25, 0.7, 30, 1, False, False, "Clear"),
-    ],
-    # Remaining locations follow the same fixed-condition pattern
-}
+    # OPEN: (heuristic, cost_so_far, node, path)
+    open_list = [(0, 0, start_node, [start_node])]
+    closed_set = set()
+
+    expanded = 0
+
+    while open_list:
+        open_list.sort(key=lambda x: x[0])
+        h, current_cost, current_node, path = open_list.pop(0)
+
+        if current_node in closed_set:
+            continue
+
+        closed_set.add(current_node)
+        expanded += 1
+
+        if current_node == goal_node:
+            return path, current_cost, expanded
+
+        for edge in edges.get(current_node, []):
+            next_node = edge["to"]
+
+            if next_node in closed_set:
+                continue
+
+            # --- Realistic cost (same as UCS) ---
+            road_type = edge.get("road_type")
+            factor = ROAD_TYPE_FACTOR.get(road_type, DEFAULT_ROAD_FACTOR)
+            edge_cost = edge["cost"] * factor + INTERSECTION_PENALTY
+            new_cost = current_cost + edge_cost
+
+            # --- Heuristic ONLY drives priority ---
+            lat = nodes[next_node]["lat"]
+            lon = nodes[next_node]["lng"]
+            heuristic = haversine(lat, lon, goal_lat, goal_lon)
+
+            open_list.append((heuristic, new_cost, next_node, path + [next_node]))
+
+    return None, float("inf"), expanded
+
+# ----------------------------------
+# Build reverse graph
+# ----------------------------------
+def build_reverse_edges(edges):
+    reverse = {}
+
+    for u, edge_list in edges.items():
+        for edge in edge_list:
+            v = edge["to"]
+            reverse.setdefault(v, []).append({
+                "to": u,
+                "cost": edge["cost"],
+                "road_type": edge.get("road_type")
+            })
+
+    return reverse
+
+
+# ----------------------------------
+# Bidirectional UCS
+# ----------------------------------
+def bidirectional_ucs(start_node, goal_node):
+    with open("graph.json", "r", encoding="utf-8") as f:
+        graph = json.load(f)
+
+    edges = graph["edges"]
+    reverse_edges = build_reverse_edges(edges)
+
+    # OPEN lists: (cost, node, path)
+    open_fwd = [(0, start_node, [start_node])]
+    open_bwd = [(0, goal_node, [goal_node])]
+
+    # CLOSED lists: node -> (cost, path)
+    closed_fwd = {}
+    closed_bwd = {}
+
+    expanded = 0
+
+    while open_fwd and open_bwd:
+        # ---------------- FORWARD STEP ----------------
+        open_fwd.sort(key=lambda x: x[0])
+        cost_f, node_f, path_f = open_fwd.pop(0)
+
+        if node_f not in closed_fwd or cost_f < closed_fwd[node_f][0]:
+            closed_fwd[node_f] = (cost_f, path_f)
+            expanded += 1
+
+            if node_f in closed_bwd:
+                cost_b, path_b = closed_bwd[node_f]
+                full_path = path_f + path_b[::-1][1:]
+                return full_path, cost_f + cost_b, expanded
+
+            for edge in edges.get(node_f, []):
+                factor = ROAD_TYPE_FACTOR.get(edge.get("road_type"), DEFAULT_ROAD_FACTOR)
+                step_cost = edge["cost"] * factor + INTERSECTION_PENALTY
+                open_fwd.append((
+                    cost_f + step_cost,
+                    edge["to"],
+                    path_f + [edge["to"]]
+                ))
+
+        # ---------------- BACKWARD STEP ----------------
+        open_bwd.sort(key=lambda x: x[0])
+        cost_b, node_b, path_b = open_bwd.pop(0)
+
+        if node_b not in closed_bwd or cost_b < closed_bwd[node_b][0]:
+            closed_bwd[node_b] = (cost_b, path_b)
+            expanded += 1
+
+            if node_b in closed_fwd:
+                cost_f, path_f = closed_fwd[node_b]
+                full_path = path_f + path_b[::-1][1:]
+                return full_path, cost_f + cost_b, expanded
+
+            for edge in reverse_edges.get(node_b, []):
+                factor = ROAD_TYPE_FACTOR.get(edge.get("road_type"), DEFAULT_ROAD_FACTOR)
+                step_cost = edge["cost"] * factor + INTERSECTION_PENALTY
+                open_bwd.append((
+                    cost_b + step_cost,
+                    edge["to"],
+                    path_b + [edge["to"]]
+                ))
+
+    return None, float("inf"), expanded
+
+def main():
+    print("===== City Network Path Analysis =====\n")
+
+    print("Available Locations:")
+    for loc in locations:
+        print("-", loc)
+
+    print("\nEnter start and goal locations exactly as shown above.\n")
+
+    start = input("Start location: ").strip()
+    goal = input("Goal location: ").strip()
+
+    print("\n====================================")
+    print(f"Start: {start}")
+    print(f"Goal : {goal}")
+    print("====================================\n")
+
+    start_id, goal_id = get_start_goal_nodes(start, goal)
+
+    # ---------- UCS ----------
+    path, cost, expanded = ucs(start_id, goal_id)
+    print("Algorithm: Uniform Cost Search (UCS)")
+    if path is None:
+        print("Path: No path found")
+    else:
+        print("Path:", " -> ".join(path))
+    print(f"Total Travel Time: {cost:.2f} minutes")
+    print(f"Nodes Expanded: {expanded}\n")
+
+    # ---------- Greedy ----------
+    path, cost, expanded = greedy(start_id, goal_id)
+    print("Algorithm: Greedy Best-First Search")
+    if path is None:
+        print("Path: No path found")
+    else:
+        print("Path:", " -> ".join(path))
+    print("Total Travel Time:", round(cost, 2), "minutes")
+    print(f"Nodes Expanded: {expanded}\n")
+
+    # ---------- A* ----------
+    path, cost, expanded = a_star(start_id, goal_id)
+    print("Algorithm: A* Search")
+    if path is None:
+        print("Path: No path found")
+    else:
+        print("Path:", " -> ".join(path))
+    print(f"Total Travel Time: {cost:.2f} minutes")
+    print(f"Nodes Expanded: {expanded}\n")
+
+
+    # ---------- Bidirectional UCS ----------
+    path, cost, expanded = bidirectional_ucs(start_id, goal_id)
+    print("Algorithm: Bidirectional Uniform Cost Search")
+    if path is None:
+        print("Path: No path found")
+    else:
+        print("Path:", " -> ".join(path))
+    print(f"Total Travel Time: {cost:.2f} minutes")
+    print(f"Nodes Expanded: {expanded}\n")
+
+    print("===== End of Analysis =====")
+
+
+if __name__ == "__main__":
+    main()
