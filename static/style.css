@@ -1,6 +1,12 @@
 /* =========================
    Global Base
    ========================= */
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* ⛔ prevent page scroll */
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -114,7 +120,7 @@ body {
 .main-container {
   display: flex;
   width: 100%;
-  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
 }
 
 /* =========================
@@ -126,6 +132,8 @@ body {
   border-right: 1px solid #e5e7eb;
   padding: 0 20px 0 20px;
   box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* CONFIGURATION title */
@@ -289,6 +297,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
 }
 
 /* =========================
@@ -302,6 +311,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 24px;
+  min-height: 0; 
 }
 
 /* Map placeholder container */
@@ -426,6 +436,8 @@ body {
   background-color: #ffffff;
   padding: 20px;
   border-top: 1px solid #e5e7eb;
+  max-height: 200px;     /* adjust: 180–240px works well */
+  overflow-y: auto;      
 }
 
 .results h4 {
@@ -546,4 +558,10 @@ body {
   width: 100%;
   height: 100%;
   min-height: 500px;
+}
+/* Disabled algorithm dropdown – faded look */
+select:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background-color: #f1f5f9;
 }

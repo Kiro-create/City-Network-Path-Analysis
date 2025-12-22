@@ -69,9 +69,16 @@
             </select>
 
             <!-- ⬇️ INSERT HERE ⬇️ -->
+             <!-- SEARCH MODE -->
+            <label>Search Mode</label>
+              <select name="mode" id="mode-select" required>
+              <option value="manual">Manual (choose algorithm)</option>
+              <option value="optimal">Preferred: Optimal</option>
+              <option value="speed">Preferred: Fastest</option>
+            </select>
             <!-- ALGORITHM -->
             <label>Algorithm</label>
-            <select name="algorithm" required>
+              <select name="algorithm" id="algorithm-select">
               <option value="ucs">Uniform Cost Search</option>
               <option value="greedy">Greedy Best-First</option>
               <option value="astar">A*</option>
@@ -143,7 +150,12 @@
             </span>
           </div>
           <div class="results-box">
-            <h6>ALGORITHM<br><p>{{ algo_name }}</p></h6>
+            {% if preferred %}
+              <h6>ALGORITHM<br><p>{{ preferred.name }}</p></h6>
+            {% else %}
+              <h6>ALGORITHM<br><p>—</p></h6>
+            {% endif %}
+            <h6>MODE<br><p>{{ request.form.mode }}</p></h6>
             <h6>TIME (min)<br><p>{{ cost }}</p></h6>
             <h6>EXPANDED<br><p>{{ expanded }}</p></h6>
             <h6>PATH NODES<br><p>{{ path_coords | length }}</p></h6>
@@ -198,6 +210,24 @@
             map.fitBounds(path);
           {% endif %}
         });
+    </script>
+    <script>
+      const modeSelect = document.getElementById("mode-select");
+      const algoSelect = document.getElementById("algorithm-select");
+
+      function updateAlgorithmState() {
+        if (modeSelect.value === "manual") {
+          algoSelect.disabled = false;
+        } else {
+          algoSelect.disabled = true;
+        }
+      }
+
+      // Run on page load
+      updateAlgorithmState();
+
+      // Run when mode changes
+      modeSelect.addEventListener("change", updateAlgorithmState);
     </script>
 
   </body>
