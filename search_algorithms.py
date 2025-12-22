@@ -2,7 +2,7 @@ import math
 import json
 
 # Open and load the places.json file
-with open("places.json", "r", encoding="utf-8") as f:
+with open("data/processed/places_with_nodes.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # Dictionary to store: name -> (lat, lon)
@@ -20,7 +20,7 @@ for place in data["places"]:
 print(locations)
 
 def get_start_goal_nodes(start, goal):
-    with open("places_nodes.json", "r", encoding="utf-8") as f:
+    with open("data/processed/places_nodes.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     start_node = None
@@ -56,7 +56,7 @@ DEFAULT_ROAD_FACTOR = 1.3
 # Uniform Cost Search (Realistic)
 # ----------------------------------
 def ucs(start_node, goal_node):
-    with open("graph.json", "r", encoding="utf-8") as f:
+    with open("data/processed/road_graph.json", "r", encoding="utf-8") as f:
         graph = json.load(f)
 
     edges = graph["edges"]
@@ -102,7 +102,7 @@ def ucs(start_node, goal_node):
 # A* Search
 # ----------------------------------
 def a_star(start_node, goal_node):
-    with open("graph.json", "r", encoding="utf-8") as f:
+    with open("data/processed/road_graph.json", "r", encoding="utf-8") as f:
         graph = json.load(f)
 
     edges = graph["edges"]
@@ -172,7 +172,7 @@ def haversine(lat1, lon1, lat2, lon2):
 # Greedy Best-First Search
 # ----------------------------------
 def greedy(start_node, goal_node):
-    with open("graph.json", "r", encoding="utf-8") as f:
+    with open("data/processed/road_graph.json", "r", encoding="utf-8") as f:
         graph = json.load(f)
 
     edges = graph["edges"]
@@ -243,7 +243,7 @@ def build_reverse_edges(edges):
 # Bidirectional UCS
 # ----------------------------------
 def bidirectional_ucs(start_node, goal_node):
-    with open("graph.json", "r", encoding="utf-8") as f:
+    with open("data/processed/road_graph.json", "r", encoding="utf-8") as f:
         graph = json.load(f)
 
     edges = graph["edges"]

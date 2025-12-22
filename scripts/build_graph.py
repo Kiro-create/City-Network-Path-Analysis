@@ -16,7 +16,7 @@ SPEEDS = {
     "residential": 30
 }
 
-with open("lines.geojson", "r", encoding="utf-8") as f:
+with open("data/raw/osm_roads.geojson", "r", encoding="utf-8") as f:
     geo = json.load(f)
 
 nodes = {}

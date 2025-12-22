@@ -1,6 +1,6 @@
 import json
 from flask import Flask, render_template, request, send_from_directory
-from Code import ucs, greedy, a_star, bidirectional_ucs
+from search_algorithms import ucs, greedy, a_star, bidirectional_ucs
 
 ALGORITHMS = {
     "ucs": ("Uniform Cost Search", ucs),
@@ -12,7 +12,7 @@ ALGORITHMS = {
 app = Flask(__name__)
 
 # Load places with node ids
-with open("places_nodes.json", "r", encoding="utf-8") as f:
+with open("data/processed/places_with_nodes.json", encoding="utf-8") as f:
     places_data = json.load(f)
 
 PLACES = places_data["places"]
@@ -32,8 +32,7 @@ def index():
 
 @app.route("/graph.json")
 def graph():
-    return send_from_directory(".", "graph.json")
-
+    return send_from_directory("data/processed", "road_graph.json")
 
 @app.route("/find-path", methods=["POST"])
 def find_path():
@@ -90,7 +89,7 @@ def find_path():
     # -------------------------------------------------
     # Build path coordinates for map
     # -------------------------------------------------
-    with open("graph.json", "r", encoding="utf-8") as f:
+    with open("data/processed/road_graph.json", encoding="utf-8") as f:
         graph = json.load(f)
 
     path_nodes = preferred["path"]
