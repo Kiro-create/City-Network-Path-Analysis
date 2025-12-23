@@ -267,7 +267,7 @@ def bidirectional_ucs(start_node, goal_node):
     parent_bwd = {goal_node: None}
 
     # ---------------- TERMINATION TRACKING ----------------
-    best_cost = float("inf")   # 🔴 FIX: track best meeting cost
+    best_cost = float("inf") 
     meeting_node = None
 
     expanded = 0
@@ -275,24 +275,20 @@ def bidirectional_ucs(start_node, goal_node):
     # ---------------- MAIN LOOP ----------------
     while open_fwd and open_bwd:
 
-        # 🔴 FIX 1: correct UCS termination condition
         open_fwd.sort(key=lambda x: x[0])
         open_bwd.sort(key=lambda x: x[0])
 
         if open_fwd[0][0] + open_bwd[0][0] >= best_cost:
             break
 
-        # 🔴 FIX 2: expand the cheaper frontier
         if open_fwd[0][0] <= open_bwd[0][0]:
             # -------- FORWARD EXPANSION --------
             cost_f, node_f = open_fwd.pop(0)
             expanded += 1
 
-            # Skip dominated entries
             if cost_f > closed_fwd.get(node_f, float("inf")):
                 continue
 
-            # 🔴 FIX 3: meeting does NOT terminate immediately
             if node_f in closed_bwd:
                 total = cost_f + closed_bwd[node_f]
                 if total < best_cost:
@@ -337,18 +333,15 @@ def bidirectional_ucs(start_node, goal_node):
         return None, float("inf"), expanded
 
     # ---------------- PATH RECONSTRUCTION ----------------
-    # 🔴 FIX 4: reconstruct path AFTER search finishes
 
     path = []
 
-    # start → meeting
     n = meeting_node
     while n is not None:
         path.append(n)
         n = parent_fwd[n]
     path.reverse()
 
-    # meeting → goal (skip meeting node)
     n = parent_bwd.get(meeting_node)
     while n is not None:
         path.append(n)
