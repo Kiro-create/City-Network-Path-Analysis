@@ -108,8 +108,14 @@ def find_path():
         results=results,
         preferred=preferred,
         cost=round(preferred["cost"], 2),
-        expanded=preferred["expanded"]
+        expanded=preferred["expanded"],
+        selected_start=start_name,
+        selected_goal=goal_name,
+        selected_mode=mode,
+        selected_algorithm=algo_key
     )
+
+
 
 
 if __name__ == "__main__":

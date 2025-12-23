@@ -56,36 +56,61 @@
             <label for="start-loc">Choose starting point</label>
             <select id="start-loc" name="start" required>
               {% for place in places %}
-                <option value="{{ place.name }}">{{ place.name }}</option>
+                <option value="{{ place.name }}"
+                  {% if place.name == selected_start %}selected{% endif %}>
+                  {{ place.name }}
+                </option>
               {% endfor %}
             </select>
+
 
             <!-- GOAL -->
             <label for="goal-loc">Choose destination</label>
             <select id="goal-loc" name="goal" required>
               {% for place in places %}
-                <option value="{{ place.name }}">{{ place.name }}</option>
+                <option value="{{ place.name }}"
+                  {% if place.name == selected_goal %}selected{% endif %}>
+                  {{ place.name }}
+                </option>
               {% endfor %}
             </select>
 
-            <!-- ⬇️ INSERT HERE ⬇️ -->
              <!-- SEARCH MODE -->
             <label>Search Mode</label>
-              <select name="mode" id="mode-select" required>
-              <option value="manual">Manual (choose algorithm)</option>
-              <option value="optimal">Preferred: Optimal</option>
-              <option value="speed">Preferred: Fastest</option>
+            <select name="mode" id="mode-select" required>
+              <option value="manual"
+                {% if selected_mode == "manual" %}selected{% endif %}>
+                Manual (choose algorithm)
+              </option>
+              <option value="optimal"
+                {% if selected_mode == "optimal" %}selected{% endif %}>
+                Preferred: Optimal
+              </option>
+              <option value="speed"
+                {% if selected_mode == "speed" %}selected{% endif %}>
+                Preferred: Fastest
+              </option>
             </select>
             <!-- ALGORITHM -->
             <label>Algorithm</label>
-              <select name="algorithm" id="algorithm-select">
-              <option value="ucs">Uniform Cost Search</option>
-              <option value="greedy">Greedy Best-First</option>
-              <option value="astar">A*</option>
-              <option value="bidir">Bidirectional UCS</option>
+            <select name="algorithm" id="algorithm-select">
+              <option value="ucs"
+                {% if selected_algorithm == "ucs" %}selected{% endif %}>
+                Uniform Cost Search
+              </option>
+              <option value="greedy"
+                {% if selected_algorithm == "greedy" %}selected{% endif %}>
+                Greedy Best-First
+              </option>
+              <option value="astar"
+                {% if selected_algorithm == "astar" %}selected{% endif %}>
+                A*
+              </option>
+              <option value="bidir"
+                {% if selected_algorithm == "bidir" %}selected{% endif %}>
+                Bidirectional UCS
+              </option>
             </select>
-
-
             <!-- SUBMIT -->
             <button class="search" type="submit">Find Path</button>
 
@@ -198,7 +223,6 @@
             }
           }
 
-          /* ⬇️ ADD THIS PART HERE ⬇️ */
           {% if path_coords %}
             const path = {{ path_coords | tojson }};
             L.polyline(path, {
