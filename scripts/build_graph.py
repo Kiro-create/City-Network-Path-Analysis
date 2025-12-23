@@ -61,6 +61,23 @@ def get_node_id(coord):
     return coord_to_id[coord]
 
 
+def parse_oneway(props):
+    tags = props.get("other_tags")
+    if not tags:
+        return None
+
+    tags = tags.lower()
+
+    if '"oneway"=>"yes"' in tags:
+        return "yes"
+    if '"oneway"=>"no"' in tags:
+        return "no"
+    if '"oneway"=>"-1"' in tags:
+        return "-1"
+
+    return None
+
+
 
 for feature in geo["features"]:
     props = feature["properties"]
@@ -71,7 +88,12 @@ for feature in geo["features"]:
         continue
 
     coords = geom["coordinates"]
-    oneway = props.get("oneway") == "yes"
+    oneway = parse_oneway(props)
+
+    oneway_forward = oneway == "yes"
+    oneway_backward = oneway == "-1"
+    two_way = not oneway_forward and not oneway_backward
+
     speed = SPEEDS[highway]
     name = props.get("name")
     osm_id = props.get("osm_id")
@@ -89,7 +111,7 @@ for feature in geo["features"]:
         dist = haversine(lat1, lon1, lat2, lon2)  # km
         cost = (dist / speed) * 60                # minutes
 
-        edge_data = {
+        edge_ab = {
             "to": idb,
             "cost": cost,
             "road_type": highway,
@@ -97,14 +119,24 @@ for feature in geo["features"]:
             "osm_id": osm_id
         }
 
+        edge_ba = {
+            "to": ida,
+            "cost": cost,
+            "road_type": highway,
+            "name": name,
+            "osm_id": osm_id
+        }
 
-        edges[ida].append(edge_data)
+        if oneway_forward:
+            edges[ida].append(edge_ab)
 
-        if not oneway:
-            edges[idb].append({
-                **edge_data,
-                "to": ida
-            })
+        elif oneway_backward:
+            edges[idb].append(edge_ba)
+
+        else:
+            edges[ida].append(edge_ab)
+            edges[idb].append(edge_ba)
+
 
 with open("graph.json", "w", encoding="utf-8") as f:
     json.dump({"nodes": nodes, "edges": edges}, f, indent=2)
