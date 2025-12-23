@@ -243,68 +243,119 @@ def build_reverse_edges(edges):
 # Bidirectional UCS
 # ----------------------------------
 def bidirectional_ucs(start_node, goal_node):
+    import json
+
+    # ---------------- LOAD GRAPH ----------------
     with open("graph.json", "r", encoding="utf-8") as f:
         graph = json.load(f)
 
     edges = graph["edges"]
     reverse_edges = build_reverse_edges(edges)
 
-    # OPEN lists: (cost, node, path)
-    open_fwd = [(0, start_node, [start_node])]
-    open_bwd = [(0, goal_node, [goal_node])]
+    # ---------------- OPEN LISTS ----------------
+    # (cost, node)
+    open_fwd = [(0, start_node)]
+    open_bwd = [(0, goal_node)]
 
-    # CLOSED lists: node -> (cost, path)
-    closed_fwd = {}
-    closed_bwd = {}
+    # ---------------- CLOSED LISTS ----------------
+    # node -> best cost
+    closed_fwd = {start_node: 0}
+    closed_bwd = {goal_node: 0}
+
+    # ---------------- PARENT POINTERS ----------------
+    parent_fwd = {start_node: None}
+    parent_bwd = {goal_node: None}
+
+    # ---------------- TERMINATION TRACKING ----------------
+    best_cost = float("inf")   # 🔴 FIX: track best meeting cost
+    meeting_node = None
 
     expanded = 0
 
+    # ---------------- MAIN LOOP ----------------
     while open_fwd and open_bwd:
-        # ---------------- FORWARD STEP ----------------
+
+        # 🔴 FIX 1: correct UCS termination condition
         open_fwd.sort(key=lambda x: x[0])
-        cost_f, node_f, path_f = open_fwd.pop(0)
-
-        if node_f not in closed_fwd or cost_f < closed_fwd[node_f][0]:
-            closed_fwd[node_f] = (cost_f, path_f)
-            expanded += 1
-
-            if node_f in closed_bwd:
-                cost_b, path_b = closed_bwd[node_f]
-                full_path = path_f + path_b[::-1][1:]
-                return full_path, cost_f + cost_b, expanded
-
-            for edge in edges.get(node_f, []):
-                factor = ROAD_TYPE_FACTOR.get(edge.get("road_type"), DEFAULT_ROAD_FACTOR)
-                step_cost = edge["cost"] * factor + INTERSECTION_PENALTY
-                open_fwd.append((
-                    cost_f + step_cost,
-                    edge["to"],
-                    path_f + [edge["to"]]
-                ))
-
-        # ---------------- BACKWARD STEP ----------------
         open_bwd.sort(key=lambda x: x[0])
-        cost_b, node_b, path_b = open_bwd.pop(0)
 
-        if node_b not in closed_bwd or cost_b < closed_bwd[node_b][0]:
-            closed_bwd[node_b] = (cost_b, path_b)
+        if open_fwd[0][0] + open_bwd[0][0] >= best_cost:
+            break
+
+        # 🔴 FIX 2: expand the cheaper frontier
+        if open_fwd[0][0] <= open_bwd[0][0]:
+            # -------- FORWARD EXPANSION --------
+            cost_f, node_f = open_fwd.pop(0)
             expanded += 1
+
+            # Skip dominated entries
+            if cost_f > closed_fwd.get(node_f, float("inf")):
+                continue
+
+            # 🔴 FIX 3: meeting does NOT terminate immediately
+            if node_f in closed_bwd:
+                total = cost_f + closed_bwd[node_f]
+                if total < best_cost:
+                    best_cost = total
+                    meeting_node = node_f
+
+            # Expand neighbors
+            for edge in edges.get(node_f, []):
+                nxt = edge["to"]
+                new_cost = cost_f + edge["cost"]
+
+                if new_cost < closed_fwd.get(nxt, float("inf")):
+                    closed_fwd[nxt] = new_cost
+                    parent_fwd[nxt] = node_f
+                    open_fwd.append((new_cost, nxt))
+
+        else:
+            # -------- BACKWARD EXPANSION --------
+            cost_b, node_b = open_bwd.pop(0)
+            expanded += 1
+
+            if cost_b > closed_bwd.get(node_b, float("inf")):
+                continue
 
             if node_b in closed_fwd:
-                cost_f, path_f = closed_fwd[node_b]
-                full_path = path_f + path_b[::-1][1:]
-                return full_path, cost_f + cost_b, expanded
+                total = cost_b + closed_fwd[node_b]
+                if total < best_cost:
+                    best_cost = total
+                    meeting_node = node_b
 
             for edge in reverse_edges.get(node_b, []):
-                factor = ROAD_TYPE_FACTOR.get(edge.get("road_type"), DEFAULT_ROAD_FACTOR)
-                step_cost = edge["cost"] * factor + INTERSECTION_PENALTY
-                open_bwd.append((
-                    cost_b + step_cost,
-                    edge["to"],
-                    path_b + [edge["to"]]
-                ))
+                nxt = edge["to"]
+                new_cost = cost_b + edge["cost"]
 
-    return None, float("inf"), expanded
+                if new_cost < closed_bwd.get(nxt, float("inf")):
+                    closed_bwd[nxt] = new_cost
+                    parent_bwd[nxt] = node_b
+                    open_bwd.append((new_cost, nxt))
+
+    # ---------------- NO SOLUTION ----------------
+    if meeting_node is None:
+        return None, float("inf"), expanded
+
+    # ---------------- PATH RECONSTRUCTION ----------------
+    # 🔴 FIX 4: reconstruct path AFTER search finishes
+
+    path = []
+
+    # start → meeting
+    n = meeting_node
+    while n is not None:
+        path.append(n)
+        n = parent_fwd[n]
+    path.reverse()
+
+    # meeting → goal (skip meeting node)
+    n = parent_bwd.get(meeting_node)
+    while n is not None:
+        path.append(n)
+        n = parent_bwd[n]
+
+    return path, best_cost, expanded
+
 
 def main():
     print("===== City Network Path Analysis =====\n")
